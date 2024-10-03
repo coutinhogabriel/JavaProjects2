@@ -4,18 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
+@Setter
+@Getter
 public class Usuario {
-    //atributos
     private String id;
     private String nome;
     private int idade;
     private String endereco;
 
     @Override
-    public String toString() {
-        return "Nome: " +nome+" idade: "+idade;
+    public String toString(){
+        return "ID: "+id+" Nome: "+nome+" Idade: "+idade;
     }
 }

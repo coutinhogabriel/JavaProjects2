@@ -13,15 +13,23 @@ public class LeituraAPI {
             con.setRequestMethod("GET");
 
             int status = con.getResponseCode();
-            if (status != 200) {
-                throw new Exception("Erro de conexão");
-                
+            if (status!=200) {
+                throw new Exception("Erro de Conexão");
             }
-
-            // conexão estabelecida
-            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            //laço de repetição 
+            //conexão estabelecidada
+            BufferedReader br = new BufferedReader(
+                new InputStreamReader(con.getInputStream())
+            );
+            //laço de repetição
+            String linha;
+            StringBuffer conteudo = new StringBuffer();
+            while ((linha = br.readLine()) != null) {
+                conteudo.append(linha);
+            }
+            br.close();
+            System.out.println(conteudo.toString());
         } catch (Exception e) {
+            e.printStackTrace();
         }
         
     }

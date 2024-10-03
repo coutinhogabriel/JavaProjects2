@@ -3,7 +3,6 @@ package com.example;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -23,71 +22,71 @@ public class UsuarioController {
 
     public void read() {
         try {
-            // estabelecer conexão
-            URL url = new URL("http://localhost:3000/usuarios");
+            // estabeler conexão
+            url = new URL("http://localhost:3000/usuarios");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
-            // verifiar status da conexão
+            // verificar status da conexão
             int status = con.getResponseCode();
-            if (status != 200) {// diferente de 200 lanças uma exception
-                throw new Exception("Erro de conexão");
-
+            if (status != 200) {// diferente de 200 lançar uma exception
+                throw new Exception("Erro de Conexão");
             }
             // gravar os dados da api na memoria
-            BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
             String linha;
-            // converter em um arquivo de texto (stringbuffer)
+            // converter em um arquivo de texto(string)
             StringBuffer content = new StringBuffer();
-            // lê a resposta da api linha por linha
+            // Lê a resposta da API linha por linha
             while ((linha = br.readLine()) != null) {
                 content.append(linha);
-
             }
             br.close();// fecha a conexão
             // converter o arquivo de texto para dados da classe usuario
             JSONArray dadosUsuarios = new JSONArray(content.toString());
 
-            // adiciona os dados na lista
             for (int i = 0; i < dadosUsuarios.length(); i++) {
                 JSONObject usuarioJson = dadosUsuarios.getJSONObject(i);
                 usuarios.add(new Usuario(
-                        usuarioJson.getString("id"),
-                        usuarioJson.getString("nome"),
-                        usuarioJson.getInt("idade"),
-                        usuarioJson.getString("endereco")));
-                System.out.println(usuarios.toString());
+                        usuarioJson.getString("id"), // id
+                        usuarioJson.getString("nome"), // nome
+                        usuarioJson.getInt("idade"), // idade
+                        usuarioJson.getString("endereco") // endereco
+                ));
             }
+
+            System.out.println(usuarios.toString());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     public void createUser(Usuario usuario) {
+        // estabelecer conexão
         try {
-            // estabelecer conexão
-            URL url = new URL("http://localhost:3000/usuarios");
+            url = new URL("http://localhost:3000/usuarios");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json; utf-8");
-            con.setDoOutput(true); // Para enviar dados no corpo da requisição
-
-            // criar objeto JSON para o novo usuário
+            con.setRequestProperty("Accept", "application/json");
+            con.setDoOutput(true);
+            // informações necessárias para o post
+            // criando o Objeto Json
             JSONObject usuarioJson = new JSONObject();
             usuarioJson.put("nome", usuario.getNome());
             usuarioJson.put("idade", usuario.getIdade());
             usuarioJson.put("endereco", usuario.getEndereco());
 
-            // enviar os dados para API
+            // enviar dos dados para a API
             try (BufferedWriter bw = new BufferedWriter(
                     new OutputStreamWriter(con.getOutputStream(), "UTF-8"))) {
                 bw.write(usuarioJson.toString());
                 bw.flush();
             }
-
-            // verificar status da resposta
+            // Verificar o status da resposta
             int status = con.getResponseCode();
-            if (status != HttpURLConnection.HTTP_CREATED) { // 201 Created
+            if (status != HttpURLConnection.HTTP_CREATED) { // HTTP 201 Created
                 throw new Exception("Erro ao criar usuário: " + status);
             }
 
@@ -95,6 +94,65 @@ public class UsuarioController {
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+    }
+
+    //método PUT
+    public void updateUser(Usuario usuario){
+        try {
+            url = new URL("http://localhost:3000/usuarios/"+usuario.getId());
+            
+            //estabelecer conexão
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("PUT");
+            con.setRequestProperty("Content-Type", "application/json; utf-8");
+            con.setRequestProperty("Accept", "application/json");
+            con.setDoOutput(true);
+            
+            // criando o Objeto Json
+            JSONObject usuarioJson = new JSONObject();
+            usuarioJson.put("id", usuario.getId());
+            usuarioJson.put("nome", usuario.getNome());
+            usuarioJson.put("idade", usuario.getIdade());
+            usuarioJson.put("endereco", usuario.getEndereco());
+
+            // enviar dos dados para a API
+            try (BufferedWriter bw = new BufferedWriter(
+                    new OutputStreamWriter(con.getOutputStream(), "UTF-8"))) {
+                bw.write(usuarioJson.toString());
+                bw.flush();
+            }
+
+            //verificar status
+            if (con.getResponseCode()!=HttpURLConnection.HTTP_OK) {
+               throw new Exception("Erro de Conexão"); 
+            }
+            read();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    //Método - Delete
+    public void deleteUser(String id){
+        try {
+            url = new URL("http://localhost:3000/usuarios/"+id);
+
+            //estabelecer conexão
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("DELETE");
+            con.setRequestProperty("Accept", "application/json");
+            
+            int status = con.getResponseCode();
+            if (status!=200 && status!=204) {
+                throw new Exception("Erro de Conexão");                
+            }
+
+            System.out.println("Deletado com sucesso");
+            read();
+
+        } catch (Exception e) {
+            System.err.println(e);
         }
     }
 
