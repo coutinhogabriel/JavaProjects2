@@ -1,0 +1,64 @@
+{
+  "maquinas": [
+    {
+      "id": "2",
+      "codigo": "M001",
+      "nome": "Torno CNC",
+      "modelo": "CNC FANUC",
+      "fabricante": "FANUC",
+      "dataAquisicao": "1998-01-10",
+      "tempoVidaEstimado": 10,
+      "localizacao": "Linha 2",
+      "detalhes": "Operação em alta precisão",
+      "manual": "URL do manual"
+    }
+  ],
+  "historicoManutencao": [
+    {
+      "id": "1",
+      "maquinaId": 1,
+      "data": "2024-10-07",
+      "tipo": "Preventiva",
+      "pecasTrocadas": "Correia",
+      "tempoDeParada": 4,
+      "tecnicoId": "João Silva",
+      "observacoes": "Substituição preventiva da correia."
+    },
+    {
+      "id": "2",
+      "maquinaId": 2,
+      "data": "2024-10-07",
+      "tipo": "Corretiva",
+      "pecasTrocadas": "Rolamento",
+      "tempoDeParada": 7,
+      "tecnicoId": "Micaiu kbelo",
+      "observacoes": "Substituição rolamentos do motor"
+    }
+  ],
+  "falhas": [
+    {
+      "id": "1",
+      "maquinaId": 1,
+      "data": "2024-09-28",
+      "problema": "Falha no motor",
+      "prioridade": "Alta",
+      "operador": "Carlos Lima"
+    },
+    {
+      "id": "2",
+      "maquinaId": 1,
+      "data": "2024-09-28",
+      "problema": "Falha no sensor",
+      "prioridade": "Alta",
+      "operador": "Abner"
+    }
+  ],
+  "tecnicos": [
+    {
+      "id": "2",
+      "nome": "gabrieu",
+      "especialidade": "Eletrônico",
+      "disponibilidade": "Ocupado"
+    }
+  ]
+}

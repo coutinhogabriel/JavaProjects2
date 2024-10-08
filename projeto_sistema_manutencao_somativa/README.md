@@ -137,4 +137,45 @@ Este escopo estabelece as bases para o desenvolvimento do Sistema de Manutençã
 ## Diagrama de classe
 ![DIAGRAMA DE CLASSES](img/diagram_classe.png)
 
-## Diagrama 
+## Diagrama de sequencia
+![DIAGRAMA DE SEQUENCES](img/diagram_seq.png)
+
+## Testes de API -
+## MÁQUINAS - GET
+![TESTE DE API](img/maq/get_maq.png)
+
+## MÁQUINAS - POST
+![TESTE DE API](img/maq/post_maq.png)
+
+## MÁQUINAS - PUT
+![TESTE DE API](img/maq/put_maq.png)
+
+## MÁQUINAS - DELETE
+![TESTE DE API](img/maq/del1_maq.png)
+
+## MÁQUINAS - GET PÓS DELETE
+![TESTE DE API](img/maq/get_del_maq.png)
+
+## HISTÓRICO DE MANUTENÇÃO - GET
+![TESTE DE API](img/his_man/get_man.png)
+
+## HISTÓRICO DE MANUTENÇÃO - POST
+![TESTE DE API](img/his_man/post_man.png)
+
+## FALHAS - GET
+![TESTE DE API](img/falhas/get_falhas.png)
+
+## FALHAS - POST
+![TESTE DE API](img/falhas/post_falhas.png)
+
+## TÉCNICO - GET
+![TESTE DE API](img/tec/get_tec.png)
+
+## TÉCNICO - POST
+![TESTE DE API](img/tec/post_tec.png)
+
+## TÉCNICO - DELETE
+![TESTE DE API](img/tec/get_del_tec.png)
+
+## TÉCNICO - GET PÓS DELETE
+![TESTE DE API](img/tec/get_del_tec.png)
