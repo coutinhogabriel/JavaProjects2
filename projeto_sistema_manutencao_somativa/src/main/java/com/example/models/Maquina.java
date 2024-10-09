@@ -12,6 +12,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Maquina {
+    public Maquina(Object int1, Object string, Object string2, Object string3, Object string4, Object string5,
+            Object int2, Object string6, Object string7, Object string8) {
+        //TODO Auto-generated constructor stub
+    }
     private String id;
     private String codigo;
     private String nome;
