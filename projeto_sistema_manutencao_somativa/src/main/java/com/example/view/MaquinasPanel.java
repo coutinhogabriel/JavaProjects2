@@ -2,6 +2,8 @@ package com.example.view;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -26,8 +28,8 @@ public class MaquinasPanel extends JPanel {
         super(new BorderLayout());
         maquinaController = new MaquinaController();
 
-        tableModel = new DefaultTableModel(new Object[]{
-            "ID", "Nome", "Fabricante","Modelo", "Detalhes", "Localização","Tempo Vida"
+        tableModel = new DefaultTableModel(new Object[] {
+                "ID", "Nome", "Fabricante", "Modelo", "Detalhes", "Localização", "Tempo Vida"
         }, 0);
         maquinasTable = new JTable(tableModel);
 
@@ -45,17 +47,28 @@ public class MaquinasPanel extends JPanel {
             });
         }
         JScrollPane scrollPane = new JScrollPane(maquinasTable);
-        this.add(scrollPane,BorderLayout.CENTER);
+        this.add(scrollPane, BorderLayout.CENTER);
 
-        //adicionar os botões
+        // adicionar os botões
         JPanel painelInferior = new JPanel(new FlowLayout(FlowLayout.CENTER));
         btnCadastrarMaquina = new JButton("Cadastrar");
         btnSalvarAlteracoes = new JButton("Salvar");
         painelInferior.add(btnCadastrarMaquina);
         painelInferior.add(btnSalvarAlteracoes);
-        this.add(painelInferior,BorderLayout.SOUTH);
+        this.add(painelInferior, BorderLayout.SOUTH);
 
-        //Criar as ActionListener para Botões
+        btnCadastrarMaquina.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
 
+        // Criar as ActionListener para Botões
+        // Criar o método de cadastrar
+        
+        // Pegar as informações em um formulário
+
+        // Gravar  o objeto de maquinas
+        
+        // Chamar para o controller
     }
 }
