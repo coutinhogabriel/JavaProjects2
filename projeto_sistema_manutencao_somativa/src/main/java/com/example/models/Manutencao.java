@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 
-public class HistoricoManutencao {
+public class Manutencao {
     private String id;
     private long maquinaID;
     private LocalDate data;

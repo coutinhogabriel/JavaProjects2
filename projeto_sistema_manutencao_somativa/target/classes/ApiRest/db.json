@@ -9,7 +9,7 @@
       "dataAquisicao": "1998-01-10",
       "tempoVidaEstimado": 10,
       "localizacao": "Linha 2",
-      "detalhes": "Operação em alta precisão",
+      "detalhes": "Operacao em alta precisao",
       "manual": "URL do manual"
     }
   ],
@@ -23,7 +23,7 @@
       "tempoDeParada": 4,
       "tecnicoId": "João Silva",
       "observacoes": "Substituição preventiva da correia."
-    },
+  },
     {
       "id": "2",
       "maquinaId": 2,
@@ -46,7 +46,7 @@
     },
     {
       "id": "2",
-      "maquinaId": 1,
+      "maquinaId": 2,
       "data": "2024-09-28",
       "problema": "Falha no sensor",
       "prioridade": "Alta",
@@ -57,8 +57,14 @@
     {
       "id": "2",
       "nome": "gabrieu",
-      "especialidade": "Eletrônico",
+      "especialidade": "Eletronico",
       "disponibilidade": "Ocupado"
+    },
+    {
+      "id": "1",
+      "nome": "rogerin",
+      "especialidade": "TI",
+      "disponibilidade": "Disponivel"
     }
   ]
 }

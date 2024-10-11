@@ -2,6 +2,7 @@ package com.example.api;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.time.LocalDate;
 
 
 import com.example.models.Maquina;
@@ -24,12 +25,12 @@ public class MaquinaAPI {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Maquina maquina = new Maquina(
-                    jsonObject.getInt("id"),
+                    jsonObject.getString("id"),
                     jsonObject.getString("codigo"),
                     jsonObject.getString("nome"),
                     jsonObject.getString("modelo"),
                     jsonObject.getString("fabricante"),
-                    jsonObject.getString("dataAquisicao"),
+                    LocalDate.parse(jsonObject.getString("dataAquisicao")),
                     jsonObject.getInt("tempoVidaEstimado"),
                     jsonObject.getString("localizacao"),
                     jsonObject.getString("detalhes"),
@@ -40,4 +41,9 @@ public class MaquinaAPI {
         }
         return maquinas;
     }
+    public void postMaquinas(Maquina maquina) {
+
+    }
+        
+    
 }
