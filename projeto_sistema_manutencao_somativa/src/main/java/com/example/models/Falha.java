@@ -11,13 +11,11 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Manutencao {
+public class Falha {
     private String id;
     private String maquinaID;
     private LocalDate data;
-    private String tipo;
-    private String pecasTrocadas;
-    private long tempoDeParada;
-    private String tecnicoID;
-    private String observacoes;
+    private String problema;
+    private String prioridade;
+    private String operador;
 }

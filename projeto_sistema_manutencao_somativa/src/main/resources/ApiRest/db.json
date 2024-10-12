@@ -11,28 +11,50 @@
       "localizacao": "Linha 2",
       "detalhes": "Operacao em alta precisao",
       "manual": "URL do manual"
+    },
+    {
+      "tempoVidaEstimado": 50,
+      "codigo": "MD2",
+      "localizacao": "Linha 1",
+      "nome": "TORNO CNC",
+      "fabricante": "SIEMENS",
+      "manual": "URL do manual",
+      "modelo": "SINUMERIK 840D",
+      "dataAquisicao": "2003-12-01",
+      "detalhes": "Operacao em alta demanda",
+      "id": "9512"
     }
   ],
   "historicoManutencao": [
     {
-      "id": "1",
-      "maquinaId": 1,
-      "data": "2024-10-07",
-      "tipo": "Preventiva",
-      "pecasTrocadas": "Correia",
       "tempoDeParada": 4,
-      "tecnicoId": "João Silva",
-      "observacoes": "Substituição preventiva da correia."
-  },
-    {
-      "id": "2",
-      "maquinaId": 2,
+      "observacoes": "Substituicao preventiva da correia.",
+      "tipo": "Preventiva",
       "data": "2024-10-07",
-      "tipo": "Corretiva",
-      "pecasTrocadas": "Rolamento",
+      "maquinaId": "1",
+      "pecasTrocadas": "Correia",
+      "tecnicoId": "Joao Silva",
+      "id": "1"
+    },
+    {
       "tempoDeParada": 7,
+      "observacoes": "Substituicao rolamentos do motor",
+      "tipo": "Corretiva",
+      "data": "2024-10-07",
+      "maquinaId": "2",
+      "pecasTrocadas": "Rolamento",
       "tecnicoId": "Micaiu kbelo",
-      "observacoes": "Substituição rolamentos do motor"
+      "id": "2"
+    },
+    {
+      "id": "df7e",
+      "tempoDeParada": 12,
+      "observacoes": "Substituicao motor cc",
+      "tipo": "Preventiva",
+      "data": "2024-09-09",
+      "maquinaId": "12",
+      "pecasTrocadas": "Motor CC",
+      "tecnicoId": "Marcus"
     }
   ],
   "falhas": [
@@ -45,12 +67,28 @@
       "operador": "Carlos Lima"
     },
     {
-      "id": "2",
-      "maquinaId": 2,
       "data": "2024-09-28",
-      "problema": "Falha no sensor",
       "prioridade": "Alta",
-      "operador": "Abner"
+      "maquinaId": "2",
+      "problema": "Falha no sensor",
+      "operador": "Dick",
+      "id": "2"
+    },
+    {
+      "id": "6616",
+      "data": "2001-12-01",
+      "prioridade": "Baixa",
+      "maquinaId": "3",
+      "problema": "Falha de contorno",
+      "operador": "Micaiu kbelo"
+    },
+    {
+      "data": "1998-04-01",
+      "prioridade": "Baixa",
+      "maquinaId": "27",
+      "problema": "Falha de safety",
+      "operador": "Sebastian",
+      "id": "449b"
     }
   ],
   "tecnicos": [
@@ -65,6 +103,12 @@
       "nome": "rogerin",
       "especialidade": "TI",
       "disponibilidade": "Disponivel"
+    },
+    {
+      "id": "1a5f",
+      "especialidade": "Suporte TI",
+      "disponibilidade": "Ocupado",
+      "nome": "luisao"
     }
   ]
 }

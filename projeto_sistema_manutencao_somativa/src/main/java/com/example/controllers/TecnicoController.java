@@ -1,34 +1,60 @@
 package com.example.controllers;
 
-import java.util.*;
 import com.example.api.TecnicoAPI;
-import com.example.models.Tecnicos;
+import com.example.models.Tecnico;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TecnicoController {
-    private List<Tecnicos> tecnicos;
+    private List<Tecnico> tecnicos;
 
     public TecnicoController() {
         tecnicos = new ArrayList<>();
     }
 
-    // Método CRUD
-    public void createTecnico(Tecnicos tecnico) {
-        this.tecnicos.add(tecnico);
+    // Método para criar um novo técnico
+ // Método para criar um novo técnico
+public Tecnico createTecnico(Tecnico tecnico) {
+    Tecnico novoTecnico = TecnicoAPI.createTecnico(tecnico);
+    if (novoTecnico != null) {
+        // Atualiza a lista de técnicos após criar um novo
+        readTecnicos();
+    }
+    return novoTecnico; // Retorna o objeto Técnico criado
+}
+
+
+ // Método para obter a lista de técnicos e armazená-la localmente
+public List<Tecnico> readTecnicos() {
+    // Obtém a lista de técnicos do API
+    List<Tecnico> tecnicos = TecnicoAPI.getTecnicos();
+    return tecnicos; // Retorna a lista de técnicos
+}
+
+
+    // Método para atualizar um técnico existente
+    public String updateTecnico(Tecnico tecnico) {
+        String response = TecnicoAPI.updateTecnico(tecnico);
+        if (response != null) {
+            // Atualiza a lista de técnicos após a modificação
+            readTecnicos();
+        }
+        return response;
     }
 
-    // Método Read
-    public List<Tecnicos> readTecnicos() {
-        tecnicos = TecnicoAPI.getTecnicos();
+    // Método para deletar um técnico pelo ID
+    public String deleteTecnico(String id) {
+        String response = TecnicoAPI.deleteTecnico(id);
+        if (response != null) {
+            // Atualiza a lista de técnicos após a exclusão
+            readTecnicos();
+        }
+        return response;
+    }
+
+    // Método para obter a lista de técnicos (pode ser usada para outros propósitos)
+    public List<Tecnico> getTecnicos() {
         return tecnicos;
-    }
-
-    // Método Update
-    public void updateTecnico(int posicao, Tecnicos tecnico) {
-        tecnicos.set(posicao, tecnico);
-    }
-
-    // Método Delete
-    public void deleteTecnico(int posicao) {
-        tecnicos.remove(posicao);
     }
 }
